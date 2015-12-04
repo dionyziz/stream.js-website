@@ -1,0 +1,578 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <title>stream.js — streams in javascript</title>
+        <link rel="icon" type="image/png" href="favicon.png" />
+        <link type="text/css" rel="stylesheet" href="syntax/css/SyntaxHighlighter.css" />
+        <style>
+        body {
+            font-family: 'Trebuchet MS', Verdana, sanf-serif;
+        }
+        a.download {
+            background-color: #456;
+            padding: 10px;
+            border-radius: 5px;
+            border: 1px solid black;
+            border-top: 1px solid #b3d0eb;
+            border-left: 1px solid #b3d0eb;
+            color: white;
+            text-decoration: none;
+            display: block;
+            margin: 10px auto;
+            width: 200px;
+            text-align: center;
+            font-weight: bold;
+            background-image: -webkit-gradient(
+                linear,
+                left bottom,
+                left top,
+                color-stop(0, rgb(19,57,97)),
+                color-stop(1, rgb(54,130,201))
+            );
+            background-image: -moz-linear-gradient(
+                center bottom,
+                rgb(19,57,97) 0%,
+                rgb(54,130,201) 100%
+            );
+        }
+        a.download:hover {
+            background-image: -webkit-gradient(
+                linear,
+                left bottom,
+                left top,
+                color-stop(0, rgb(19,57,97)),
+                color-stop(1, rgb(127,191,250))
+            );
+            background-image: -moz-linear-gradient(
+                center bottom,
+                rgb(19,57,97) 0%,
+                rgb(127,191,250) 100%
+            );
+        }
+        body {
+            background-color: #eee;
+            margin: 0;
+        }
+        div.content {
+            margin: 20px 20px 5px 20px;
+        }
+        h1 {
+            background-image: url( 'http://www.defaulticon.com/sites/default/files/styles/icon-front-page-32x32-preview/public/field/image/MD-shuffle.png' );
+            background-repeat: no-repeat;
+            padding-left: 40px;
+            background-position: 0 7px;
+        }
+        h2 {
+            font-size: 110%;
+        }
+        h1, h2 {
+            text-shadow: 1px 1px 0px white; 
+        }
+        div.love:before {
+            content: '♥';
+            color: red;
+            padding-right: 5px;
+            font-size: 150%;
+            position: relative;
+            top: 2px;
+        }
+        div.love {
+            position: relative;
+            top: -4px;
+            float: left;
+        }
+        div.copy {
+            background-color: #111;
+            color: white;
+            padding: 10px;
+            font-size: 80%;
+            border-top: 1px solid black;
+        }
+        #mit {
+
+        }
+        .license {
+            float: right;
+        }
+        div.copy a {
+            color: #eee;
+            text-decoration: none;
+        }
+        div.copy a:hover {
+            text-decoration: underline;
+        }
+        div.copy img {
+            vertical-align: text-bottom;
+            padding: 0 0 0 15px;
+        }
+        #tint {
+            background-color: black;
+            position: fixed;
+            top: 0;
+            bottom: 0;
+            right: 0;
+            left: 0;
+            opacity: 0.5;
+        }
+        #license-modal {
+            display: none;
+        }
+        #license {
+            background-color: white;
+            padding: 10px;
+            width: 800px;
+            height: 400px;
+            position: fixed;
+            left: 50%;
+            top: 50%;
+            margin-left: -400px;
+            margin-top: -200px;
+            border-radius: 10px;
+            box-shadow: 0 0 20px -5px black;
+        }
+        #license p {
+            font-size: 80%;
+        }
+        #license h2 {
+            margin-top: 0;
+            font-size: 110%;
+            text-align: center;
+        }
+        #license p.summary {
+            font-size: 100%;
+        }
+        a#close {
+            position: absolute;
+            top: 0;
+            right: 0;
+            text-decoration: none;
+            color: black;
+            font-size: 120%;
+            font-weight: bold;
+            padding: 5px 8px;
+        }
+        a#close:hover {
+            color: red;
+        }
+        .oss {
+            background-image: url( 'http://www.defaulticon.com/sites/default/files/styles/icon-front-page-32x32-preview/public/field/image/open-source.png' );
+            background-repeat: no-repeat;
+            background-position: top left;
+            padding-left: 40px;
+            min-height: 30px;
+            line-height: 30px;
+        }
+        .version {
+            text-align: center;
+            color: #999;
+            font-size: 80%;
+            display: block;
+        }
+        </style>
+    </head>
+    <body>
+        <a href="https://github.com/dionyziz/stream.js"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png" alt="Fork me on GitHub"></a>
+        <div class='content'>
+            <h1>stream.js</h1>
+            
+            <p>
+            stream.js is a tiny stand-alone Javascript library that <em>unlocks</em> a new data structure for you: <strong>streams</strong>.
+            </p>
+            <pre name="code" class="jscript:nogutter:nocontrols">
+                &lt;script src='stream-min.js'&gt;&lt;/script&gt;
+            </pre>
+
+            <a class='download' href="stream/stream-min.js">Download stream.js</a>
+            <span class='version'>v1.1, 2Kb minified</span>
+
+            <h2>What are streams?</h2>
+            <p>
+            Streams are an easy to use data structure similar to arrays and linked lists, but with some <strong>extraordinary</strong> capabilities.
+            </p>
+
+            <h2>What's so special about them?</h2>
+            <p>
+            Unlike arrays, streams are a magical data structure. They can have an <strong>infinite number of elements</strong>.
+            Yes, you heard right. Their power comes from being <em>lazily evaluated</em>, which in simple terms means that they can contain infinite items.
+            </p>
+
+            <h2>Getting started</h2>
+            <p>
+            If you devote 10 minutes of your time to read this page, it may completely change the way you think about programming (unless you come from
+            a functional programming background that is!).
+            Please bear with me and let me first introduce you to the basic operations streams support which are similar to arrays and linked lists.
+            And then we'll talk about their interesting properties.
+            </p>
+            <p>
+            Streams are containers. They contain items. You can make a stream with some items using
+            <code class='inline'>Stream.make</code>. Just pass it as arguments the items you want to be
+            part of your stream:
+            </p>
+            <pre name="code" class="jscript:nogutter:nocontrols">
+                var s = Stream.make( 10, 20, 30 ); // s is now a stream containing 10, 20, and 30
+            </pre>
+            <p>
+            Easy enough, s is now a stream containing three items: 10, 20, and 30; in this order. We can look at the length of the stream using
+            <code class='inline'>s.length()</code> and retrieve particular items by index using <code class='inline'>s.item( i )</code>.
+            The first item of the stream can also be obtained by calling <code class='inline'>s.head()</code>. Let's see it in action:
+            </p>
+            <pre name="code" class="jscript:nogutter:nocontrols">
+                var s = Stream.make( 10, 20, 30 );
+                console.log( s.length() );  // outputs 3
+                console.log( s.head() );    // outputs 10
+                console.log( s.item( 0 ) ); // exactly equivalent to the line above
+                console.log( s.item( 1 ) ); // outputs 20
+                console.log( s.item( 2 ) ); // outputs 30
+            </pre>
+            <p>
+            The stream.js library is already loaded on this page. Feel free to fire up your browser's Javascript console if you want to run some of the examples
+            or write your own.
+            </p>
+            <p>
+            Continuing, the empty stream can be constructed either using <code class='inline'>new Stream()</code> or just <code class='inline'>Stream.make()</code>.
+            The stream containing all the items of the original stream except the head can be obtained using <code class='inline'>s.tail()</code>.
+            Calling <code class='inline'>s.head()</code> or <code class='inline'>s.tail()</code> on an empty stream yields an error.
+            You can check if a stream is empty using <code class='inline'>s.empty()</code> which returns either <code>true</code> or <code>false</code>.
+            </p>
+            <pre name='code' class='jscript:nogutter:nocontrols'>
+                var s = Stream.make( 10, 20, 30 );
+                var t = s.tail();         // returns the stream that contains two items: 20 and 30
+                console.log( t.head() );  // outputs 20
+                var u = t.tail();         // returns the stream that contains one item: 30
+                console.log( u.head() );  // outputs 30
+                var v = u.tail();         // returns the empty stream
+                console.log( v.empty() ); // prints true
+            </pre>
+            <p>
+            Here's a way to print all the elements in a stream:
+            </p>
+            <pre name='code' class='jscript:nogutter:nocontrols'>
+                var s = Stream.make( 10, 20, 30 );
+                while ( !s.empty() ) {
+                    console.log( s.head() );
+                    s = s.tail();
+                }
+            </pre>
+            <p>
+            There's a convenient shortcut for that: <code>s.print()</code> shows all the items in your stream.
+            <h2>What else can I do with them?</h2>
+            <p>
+            One of the useful shortcuts is the <code>Stream.range( min, max )</code> function. It returns a stream with the natural numbers ranging from <code>min</code> to <code>max</code> inclusive.
+            </p>
+            <pre name='code' class='jscript:nogutter:nocontrols'>
+                var s = Stream.range( 10, 20 );
+                s.print(); // prints the numbers from 10 to 20
+            </pre>
+            <p>
+            You can use <code>map</code>, <code>filter</code>, and <code>walk</code> on your streams. <code>s.map( f )</code> takes an argument <code>f</code>, a function, and runs <code>f</code> on 
+            every element of the stream; it returns the stream of the return values of that function. So you can use it to, for example, double the numbers in your stream:
+            </p>
+            <pre name='code' class='jscript:nogutter:nocontrols'>
+                function doubleNumber( x ) {
+                    return 2 * x;
+                }
+
+                var numbers = Stream.range( 10, 15 );
+                numbers.print(); // prints 10, 11, 12, 13, 14, 15
+                var doubles = numbers.map( doubleNumber );
+                doubles.print(); // prints 20, 22, 24, 26, 28, 30
+            </pre>
+            <p>
+            Cool, right? Similarly <code>s.filter( f )</code> takes an argument <code>f</code>, a function, and runs <code>f</code> on every element of the stream; it then returns
+            the stream containing only the elements for which <code>f</code> returned <code>true</code>. So you can use it to only keep certain elements in your stream.
+            Let's construct a stream keeping only the odd numbers of an original stream using this idea:
+            <p>
+            <pre name='code' class='jscript:nogutter:nocontrols'>
+                function checkIfOdd( x ) {
+                    if ( x % 2 == 0 ) {
+                        // even number
+                        return false;
+                    }
+                    else {
+                        // odd number
+                        return true;
+                    }
+                }
+                var numbers = Stream.range( 10, 15 );
+                numbers.print();  // prints 10, 11, 12, 13, 14, 15
+                var onlyOdds = numbers.filter( checkIfOdd );
+                onlyOdds.print(); // prints 11, 13, 15
+            </pre>
+            <p>
+            Useful, yes? Finally <code>s.walk( f )</code> takes an argument <code>f</code>, a function, and runs <code>f</code> on every element of the stream, but it doesn't affect
+            the stream in any way. Here's another way to print the elements of stream:
+            </p>
+            <pre name='code' class='jscript:nogutter:nocontrols'>
+                function printItem( x ) {
+                    console.log( 'The element is: ' + x );
+                }
+                var numbers = Stream.range( 10, 12 );
+                // prints:
+                // The element is: 10
+                // The element is: 11
+                // The element is: 12
+                numbers.walk( printItem );
+            </pre>
+            <p>
+            One more useful function: <code>s.take( n )</code> returns a stream with the first <code>n</code> elements of your original stream. That's useful
+            for slicing streams:
+            </p>
+            <pre name='code' class='jscript:nogutter:nocontrols'>
+                var numbers = Stream.range( 10, 100 ); // numbers 10...100
+                var fewerNumbers = numbers.take( 10 ); // numbers 10...19
+                fewerNumbers.print();
+            </pre>
+            <p>
+            A few other useful things: <code>s.scale( factor )</code> multiplies every element of your stream by factor; and <code>s.add( t )</code> adds each 
+            element of the stream <code>s</code> to each element of the stream <code>t</code> and returns the result. Let's see an example of this:
+            </p>
+            <pre name='code' class='jscript:nogutter:nocontrols'>
+                var numbers = Stream.range( 1, 3 );
+                var multiplesOfTen = numbers.scale( 10 );
+                multiplesOfTen.print(); // prints 10, 20, 30
+                numbers.add( multiplesOfTen ).print(); // prints 11, 22, 33
+            </pre>
+            <p>
+            Although we've only seen streams of numbers until now, you can also have streams of anything: strings, booleans, functions, objects; even arrays or other streams.
+            Please note however that your streams may not contain the special value <code>undefined</code> as an item.
+            </p>
+
+            <h2>Show me the magic!</h2>
+            Let's now start playing with infinity. Streams don't need to have a finite number of elements.
+            For example, you can omit the second argument to <code>Stream.range( low, high )</code> and write <code>Stream.range( low )</code>; in that case,
+            there is no upper bound, and so the stream contains all the natural numbers from low and up. You can also omit <code>low</code> and it defaults to <code>1</code>.
+            In that case <code>Stream.range()</code> returns the stream of natural numbers.
+            </p>
+
+            <h2>Does that require infinite memory/time/processing power?</h2>
+            <p>
+            No, it doesn't. That's the awesome part. You can run these things and they work really fast, like regular arrays. Here's an example that prints the numbers from 1 to 10:
+            </p>
+            <pre name='code' class='jscript:nogutter:nocontrols'>
+                var naturalNumbers = Stream.range(); // returns the stream containing all natural numbers from 1 and up
+                var oneToTen = naturalNumbers.take( 10 ); // returns the stream containing the numbers 1...10
+                oneToTen.print();
+            </pre>
+
+            <h2>You're cheating</h2>
+            <p>
+            Yes, I am. The point is that you can <em>think</em> of these structures as infinite, and this introduces a new programming paradigm that yields concise code that is 
+            easy to understand and closer to mathematics than usual imperative programming.
+            The library itself is very short; it's thinking about these concepts that matters.
+            Let's play with this a little more and construct the streams containing all even numbers and
+            all odd numbers respectively.
+            </p>
+            <pre name='code' class='jscript:nogutter:nocontrols'>
+                var naturalNumbers = Stream.range(); // naturalNumbers is now 1, 2, 3, ...
+                var evenNumbers = naturalNumbers.map( function ( x ) {
+                    return 2 * x;
+                } ); // evenNumbers is now 2, 4, 6, ...
+                var oddNumbers = naturalNumbers.filter( function ( x ) {
+                    return x % 2 != 0;
+                } ); // oddNumbers is now 1, 3, 5, ...
+                evenNumbers.take( 3 ).print(); // prints 2, 4, 6
+                oddNumbers.take( 3 ).print(); // prints 1, 3, 5
+            </pre>
+            
+            <p>
+            Cool, right? I kept my promise that streams are more powerful than arrays. Now, bear with me for a few more minutes and
+            let's introduce a few more things about streams. You can make your own stream objects using <code>new Stream()</code> to create an empty stream, or
+            <code>new Stream( head, functionReturningTail )</code> to create a non-empty stream. In case of a non-empty stream, the first parameter is the head of your
+            desired stream, while the second parameter is a <em>function</em> returning the tail (a stream with all the rest of the elements), which could potentially be the
+            empty stream. Confusing? Let's look at an example:
+            </p>
+            <pre name='code' class='jscript:nogutter:nocontrols'>
+                var s = new Stream( 10, function () {
+                    return new Stream();
+                } );
+                // the head of the s stream is 10; the tail of the s stream is the empty stream
+                s.print(); // prints 10
+                var t = new Stream( 10, function () {
+                    return new Stream( 20, function () {
+                        return new Stream( 30, function () {
+                            return new Stream();
+                        } );
+                    } );
+                } );
+                // the head of the t stream is 10; its tail has a head which is 20 and a tail which
+                // has a head which is 30 and a tail which is the empty stream.
+                t.print(); // prints 10, 20, 30
+            </pre>
+            <p>
+            Too much trouble for nothing? You can always use <code>Stream.make( 10, 20, 30 )</code> to do this.
+            But notice that this way we can construct our own infinite streams easily. Let's make a stream which is an endless series of ones:
+            </p>
+            <pre name='code' class='jscript:nogutter:nocontrols'>
+                function ones() {
+                    return new Stream(
+                        // the first element of the stream of ones is 1...
+                        1,
+                        // and the rest of the elements of this stream are given by calling the function ones() (this same function!)
+                        ones
+                    );
+                }
+
+                var s = ones();      // now s contains 1, 1, 1, 1, ...
+                s.take( 3 ).print(); // prints 1, 1, 1
+            </pre>
+            <p>
+            Notice that if you use <code>s.print()</code> on an infinite stream, it will print for ever, eventually running out of memory. Hence it's best
+            to <code>s.take( n )</code> before you <code>s.print()</code>. Using <code>s.length()</code> on infinite streams is meaningless, so don't do it;
+            it will cause an infinite loop (trying to find the end of an endless stream). But of course you can use <code>s.map( f )</code> and <code>s.filter( f )</code>
+            on infinite streams. However, <code>s.walk( f )</code> will also not run properly on infinite streams. So those are some things to keep in mind;
+            make sure you use <code>s.take( n )</code> if you want to take a finite part of an infinite stream.
+            </p>
+            Let's see if we can make something more interesting. Here's an alternative and interesting way to create the stream of natural numbers:
+            </p>
+            <pre name='code' class='jscript:nogutter:nocontrols'>
+                function ones() {
+                    return new Stream( 1, ones );
+                }
+                function naturalNumbers() {
+                    return new Stream(
+                        // the natural numbers are the stream whose first element is 1...
+                        1,
+                        function () {
+                            // and the rest are the natural numbers all incremented by one
+                            // which is obtained by adding the stream of natural numbers...
+                            // 1, 2, 3, 4, 5, ...
+                            // to the infinite stream of ones...
+                            // 1, 1, 1, 1, 1, ...
+                            // yielding...
+                            // 2, 3, 4, 5, 6, ...
+                            // which indeed are the REST of the natural numbers after one
+                            return ones().add( naturalNumbers() );
+                        } 
+                    );
+                }
+                naturalNumbers().take( 5 ).print(); // prints 1, 2, 3, 4, 5
+            </pre>
+            <p>
+            The careful reader will now observe the reason why the second parameter to new Stream is a <em>function</em> that returns the tail and not the
+            tail itself. This way we can avoid infinite loops by postponing when the tail is evaluated.
+            </p>
+            <p>
+            Let's now turn to a little harder example. It's left as an exercise for the reader to figure out what the following piece of code does.
+            </p>
+            <pre name='code' class='jscript:nogutter:nocontrols'>
+                function sieve( s ) {
+                    var h = s.head();
+                    return new Stream( h, function () {
+                        return sieve( s.tail().filter( function( x ) {
+                            return x % h != 0;
+                        } ) );
+                    } );
+                }
+                sieve( Stream.range( 2 ) ).take( 10 ).print();
+            </pre>
+            <p>
+            Make sure you take some time to figure out what this does. Most programmers find it hard to understand unless they have a functional programming
+            background, so don't feel bad if you don't get it immediately. Here's a hint: Try to find what the head of the printed stream will be. And then
+            try to find what the second element of the stream will be (the head of the tail); then the third element, and so forth. The name of the function
+            may also help you.
+            </p>
+            <p>
+            If you <em>really</em> can't figure out what it does, just run it and see for yourself! It'll be easier to figure out <em>how</em> it does it then.
+            </p>
+            <h2>Ports</h2>
+            The following ports of stream.js are available:
+
+            <ul>
+                <li><a href='https://github.com/MichaelBlume/coffeestream'>coffeestream</a> is a CoffeeScript port by Michael Blume</li>
+                <li><a href='http://ryangantt.com/stream'>streamphp</a> is a PHP port by Ryan Gantt</li>
+                <li><a href='http://code.google.com/p/python-stream/'>python-stream</a> is a Python port by Aris Mikropoulos</li>
+            </ul>
+
+            <h2>Tribute</h2>
+            <p>Streams aren't in fact a new idea at all. Many functional languages support them. The name 'stream' is used in Scheme, a LISP dialect that supports these features.
+            Haskell also supports infinite lists. The names 'take', 'tail', 'head', 'map' and 'filter' are all used in Haskell. A different but similar concept also exists in Python and in many other languages; these are called "generators".</p>
+            <p>These ideas have been around for a long time in the functional programming community. However, they're quite new concepts for most Javascript programmers, especially those without a functional programming background.</p>
+            <p>Many of the examples and ideas come from the book <a href='http://mitpress.mit.edu/sicp/full-text/book/book.html'>Structure and Interpretation of Computer Programs</a>. If you like the ideas here, I highly recommend reading it; it's available online for free. It was my inspiration for building this library.</p>
+            <p>If you prefer a different syntax for streams, you can try out <a href="http://neue.cc/reference.htm">linq.js</a> or, if you use node.js, <a href='https://github.com/pkrumins/node-lazy'>node-lazy</a> may be for you.</p>
+
+            <h2>Thanks for reading!</h2>
+            <p>
+            I hope you learned something and that you enjoy using stream.js. I didn't get paid to make this library, so if you liked it or it helped you in any way,
+            you can <a href='#donate-form' id='donate-link'>buy me a cup of hot chocolate</a> (I don't drink coffee) or just <a href="mailto:dionyziz@gmail.com">send me a e-mail</a>. If you do, make
+            sure to write where you're from and what you do. I also enjoy receiving pictures of places from around the world, so feel free to attach a picture of yourself
+            in your city!
+            </p>
+            <p>
+            <a href="http://twitter.com/dionyziz" class="twitter-follow-button" data-show-count="false">Follow @dionyziz</a>
+            <script src="http://platform.twitter.com/widgets.js" type="text/javascript"></script>
+            </p>
+            <form action="https://www.paypal.com/cgi-bin/webscr" method="post" id='donate-form'>
+                <input type="hidden" name="cmd" value="_s-xclick">
+                <input type="hidden" name="encrypted" value="-----BEGIN PKCS7-----MIIHqQYJKoZIhvcNAQcEoIIHmjCCB5YCAQExggEwMIIBLAIBADCBlDCBjjELMAkGA1UEBhMCVVMxCzAJBgNVBAgTAkNBMRYwFAYDVQQHEw1Nb3VudGFpbiBWaWV3MRQwEgYDVQQKEwtQYXlQYWwgSW5jLjETMBEGA1UECxQKbGl2ZV9jZXJ0czERMA8GA1UEAxQIbGl2ZV9hcGkxHDAaBgkqhkiG9w0BCQEWDXJlQHBheXBhbC5jb20CAQAwDQYJKoZIhvcNAQEBBQAEgYBzPgwO8JBst2uM142pCcqG4oEIA1myMw+VPWBkUignOPBBjrcYY16lmTJHZLW9rQjREHvtf+gE7WQXqGjPFu8UgP6RQRik/LNAQZ92+i3JwscHC8TwNcxdroPbKi8AnsvZRY9szBTbZOMVc27mAmUSVh7WEu+KSAJNwy0fAETZAzELMAkGBSsOAwIaBQAwggElBgkqhkiG9w0BBwEwFAYIKoZIhvcNAwcECDkBaUzM7waNgIIBAHjltWjJ1ByTRkv1SWn7xaPelurx89c0iL4GBmFwP0eW4t9DvQBIqU0P4naZRapu7Bm1VTH2ESbGbOWqhlbsaTcyOUt8dCtrMRgJKgSaQrElfH5QXKKP8n/O5rIietxiS6YFMNtGxM5DmHviJ/o5IMu7GOrcQE+j6cFaZDhrwMUm3aLB7WVkBFvcusen5Y4b7O2t01Dgz5WhaVWEXsUOavgABwR0ZPLUKwrasM1Vow8U6Q8/l4d5uQgZz837QY0EveH2yCO3rhAAtkRL4OVZCypqUpBFX6FHPuSDvzu9KizWXIdn/aym9FvocKfHFymB8eaTivmdrZ1pIlgNIlIf4qqgggOHMIIDgzCCAuygAwIBAgIBADANBgkqhkiG9w0BAQUFADCBjjELMAkGA1UEBhMCVVMxCzAJBgNVBAgTAkNBMRYwFAYDVQQHEw1Nb3VudGFpbiBWaWV3MRQwEgYDVQQKEwtQYXlQYWwgSW5jLjETMBEGA1UECxQKbGl2ZV9jZXJ0czERMA8GA1UEAxQIbGl2ZV9hcGkxHDAaBgkqhkiG9w0BCQEWDXJlQHBheXBhbC5jb20wHhcNMDQwMjEzMTAxMzE1WhcNMzUwMjEzMTAxMzE1WjCBjjELMAkGA1UEBhMCVVMxCzAJBgNVBAgTAkNBMRYwFAYDVQQHEw1Nb3VudGFpbiBWaWV3MRQwEgYDVQQKEwtQYXlQYWwgSW5jLjETMBEGA1UECxQKbGl2ZV9jZXJ0czERMA8GA1UEAxQIbGl2ZV9hcGkxHDAaBgkqhkiG9w0BCQEWDXJlQHBheXBhbC5jb20wgZ8wDQYJKoZIhvcNAQEBBQADgY0AMIGJAoGBAMFHTt38RMxLXJyO2SmS+Ndl72T7oKJ4u4uw+6awntALWh03PewmIJuzbALScsTS4sZoS1fKciBGoh11gIfHzylvkdNe/hJl66/RGqrj5rFb08sAABNTzDTiqqNpJeBsYs/c2aiGozptX2RlnBktH+SUNpAajW724Nv2Wvhif6sFAgMBAAGjge4wgeswHQYDVR0OBBYEFJaffLvGbxe9WT9S1wob7BDWZJRrMIG7BgNVHSMEgbMwgbCAFJaffLvGbxe9WT9S1wob7BDWZJRroYGUpIGRMIGOMQswCQYDVQQGEwJVUzELMAkGA1UECBMCQ0ExFjAUBgNVBAcTDU1vdW50YWluIFZpZXcxFDASBgNVBAoTC1BheVBhbCBJbmMuMRMwEQYDVQQLFApsaXZlX2NlcnRzMREwDwYDVQQDFAhsaXZlX2FwaTEcMBoGCSqGSIb3DQEJARYNcmVAcGF5cGFsLmNvbYIBADAMBgNVHRMEBTADAQH/MA0GCSqGSIb3DQEBBQUAA4GBAIFfOlaagFrl71+jq6OKidbWFSE+Q4FqROvdgIONth+8kSK//Y/4ihuE4Ymvzn5ceE3S/iBSQQMjyvb+s2TWbQYDwcp129OPIbD9epdr4tJOUNiSojw7BHwYRiPh58S1xGlFgHFXwrEBb3dgNbMUa+u4qectsMAXpVHnD9wIyfmHMYIBmjCCAZYCAQEwgZQwgY4xCzAJBgNVBAYTAlVTMQswCQYDVQQIEwJDQTEWMBQGA1UEBxMNTW91bnRhaW4gVmlldzEUMBIGA1UEChMLUGF5UGFsIEluYy4xEzARBgNVBAsUCmxpdmVfY2VydHMxETAPBgNVBAMUCGxpdmVfYXBpMRwwGgYJKoZIhvcNAQkBFg1yZUBwYXlwYWwuY29tAgEAMAkGBSsOAwIaBQCgXTAYBgkqhkiG9w0BCQMxCwYJKoZIhvcNAQcBMBwGCSqGSIb3DQEJBTEPFw0xMTA5MTEwMDQwNThaMCMGCSqGSIb3DQEJBDEWBBSenrHHCM9lcgIonOTETMGAAOZd0DANBgkqhkiG9w0BAQEFAASBgIx49SCPbvIuUeUGrIBbZTzUc8YgWlabVH1bXoRKFvaEpHwRbjtNQHIzPsNqbvDmhAbtoJ2BCoK6TKAHNd51t4ziE9VJmrrKmrnNlYd+SAi/fAYM+OjyfXBbHao2Y6MbPAKcRivKDHXeX3v4GVz5/lSbXywh9ISDruFwHaW532+G-----END PKCS7-----
+                ">
+                <noscript>
+                    Fancy donating 3€?
+                    <input type="image" src="https://www.paypalobjects.com/en_GB/i/btn/btn_buynow_SM.gif" name="submit" alt="PayPal — The safer, easier way to pay online.">
+                </noscript>
+                <img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1">
+            </form>
+        </div>
+        <div id='license-modal'>
+            <div id='tint'></div>
+            <div id='license'>
+                <a id='close' href="">&times;</a>
+                <h2>Your rights with stream.js</h2>
+                <p class='summary'>The stream.js tutorial is licensed under <a rel="license" href="http://creativecommons.org/licenses/by/3.0/">Creative Commons Attribution 3.0</a>.</p>
+
+                <p class='summary oss'>stream.js is licensed under the <a href='http://www.opensource.org/licenses/mit-license.php'>MIT license</a>.</p>
+            
+                <p>Copyright ©2011 Dionysis Zindros &lt;dionyziz@gmail.com&gt;</p>
+
+                <p>Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:</p>
+
+                <p>The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.</p>
+
+                <p>THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.</p>
+                <p class='summary'>Some icons are from <a href="http://www.defaulticon.com/">Default Icon</a>. If you use stream.js I'd love it if you e-mailed me with feedback.</p>
+            </div>
+        </div>
+        <div class='copy'>
+            <div class='license'>
+                <a href="http://www.opensource.org/licenses/mit-license.php" id='license-link-1' title='stream.js is licensed under the MIT license'>MIT license</a>
+                <a href="http://creativecommons.org/licenses/by/3.0/" id='license-link-2' title='The stream.js tutorial is licensed under Creative Commons Attribution 3.0'><img alt="Creative Commons License" style="border-width:0" src="http://i.creativecommons.org/l/by/3.0/80x15.png" /></a>
+            </div>
+            <div class='love'>
+                Lovingly made in London city by <a href="http://twitter.com/dionyziz">dionyziz</a>.
+            </div>
+            <div style='clear:both'></div>
+        </div>
+        <script src="syntax/js/shCore.js"></script>
+        <script src="syntax/js/shBrushJScript.js"></script>
+        <script> 
+        dp.SyntaxHighlighter.HighlightAll( 'code' );
+        var $ = function( id ) {
+            return document.getElementById( id );
+        }
+        $( 'license-link-1' ).onclick = $( 'license-link-2' ).onclick = function() {
+            $( 'license-modal' ).style.display = 'block';
+            return false;
+        };
+        $( 'tint' ).onclick = $( 'close' ).onclick = function() {
+            $( 'license-modal' ).style.display = 'none';
+            return false;
+        };
+        $( 'donate-link' ).onclick = function() {
+            $( 'donate-form' ).submit();
+            return false;
+        };
+        </script>
+        <script src='http://streamjs.org/stream/stream-min.js'></script>
+        <script>
+        var _gaq = _gaq || [];
+        _gaq.push(['_setAccount', 'UA-25656135-1']);
+        _gaq.push(['_trackPageview']);
+
+        (function() {
+             var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+             ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+             var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+         })();
+        </script>
+    </body>
+</html>
