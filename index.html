@@ -5,177 +5,13 @@
         <title>stream.js — streams in javascript</title>
         <link rel="icon" type="image/png" href="favicon.png" />
         <link type="text/css" rel="stylesheet" href="syntax/css/SyntaxHighlighter.css" />
-        <style>
-        body {
-            font-family: 'Trebuchet MS', Verdana, sanf-serif;
-        }
-        a.download {
-            background-color: #456;
-            padding: 10px;
-            border-radius: 5px;
-            border: 1px solid black;
-            border-top: 1px solid #b3d0eb;
-            border-left: 1px solid #b3d0eb;
-            color: white;
-            text-decoration: none;
-            display: block;
-            margin: 10px auto;
-            width: 200px;
-            text-align: center;
-            font-weight: bold;
-            background-image: -webkit-gradient(
-                linear,
-                left bottom,
-                left top,
-                color-stop(0, rgb(19,57,97)),
-                color-stop(1, rgb(54,130,201))
-            );
-            background-image: -moz-linear-gradient(
-                center bottom,
-                rgb(19,57,97) 0%,
-                rgb(54,130,201) 100%
-            );
-        }
-        a.download:hover {
-            background-image: -webkit-gradient(
-                linear,
-                left bottom,
-                left top,
-                color-stop(0, rgb(19,57,97)),
-                color-stop(1, rgb(127,191,250))
-            );
-            background-image: -moz-linear-gradient(
-                center bottom,
-                rgb(19,57,97) 0%,
-                rgb(127,191,250) 100%
-            );
-        }
-        body {
-            background-color: #eee;
-            margin: 0;
-        }
-        div.content {
-            margin: 20px 20px 5px 20px;
-        }
-        h1 {
-            background-image: url( 'http://www.defaulticon.com/sites/default/files/styles/icon-front-page-32x32-preview/public/field/image/MD-shuffle.png' );
-            background-repeat: no-repeat;
-            padding-left: 40px;
-            background-position: 0 7px;
-        }
-        h2 {
-            font-size: 110%;
-        }
-        h1, h2 {
-            text-shadow: 1px 1px 0px white; 
-        }
-        div.love:before {
-            content: '♥';
-            color: red;
-            padding-right: 5px;
-            font-size: 150%;
-            position: relative;
-            top: 2px;
-        }
-        div.love {
-            position: relative;
-            top: -4px;
-            float: left;
-        }
-        div.copy {
-            background-color: #111;
-            color: white;
-            padding: 10px;
-            font-size: 80%;
-            border-top: 1px solid black;
-        }
-        #mit {
-
-        }
-        .license {
-            float: right;
-        }
-        div.copy a {
-            color: #eee;
-            text-decoration: none;
-        }
-        div.copy a:hover {
-            text-decoration: underline;
-        }
-        div.copy img {
-            vertical-align: text-bottom;
-            padding: 0 0 0 15px;
-        }
-        #tint {
-            background-color: black;
-            position: fixed;
-            top: 0;
-            bottom: 0;
-            right: 0;
-            left: 0;
-            opacity: 0.5;
-        }
-        #license-modal {
-            display: none;
-        }
-        #license {
-            background-color: white;
-            padding: 10px;
-            width: 800px;
-            height: 400px;
-            position: fixed;
-            left: 50%;
-            top: 50%;
-            margin-left: -400px;
-            margin-top: -200px;
-            border-radius: 10px;
-            box-shadow: 0 0 20px -5px black;
-        }
-        #license p {
-            font-size: 80%;
-        }
-        #license h2 {
-            margin-top: 0;
-            font-size: 110%;
-            text-align: center;
-        }
-        #license p.summary {
-            font-size: 100%;
-        }
-        a#close {
-            position: absolute;
-            top: 0;
-            right: 0;
-            text-decoration: none;
-            color: black;
-            font-size: 120%;
-            font-weight: bold;
-            padding: 5px 8px;
-        }
-        a#close:hover {
-            color: red;
-        }
-        .oss {
-            background-image: url( 'http://www.defaulticon.com/sites/default/files/styles/icon-front-page-32x32-preview/public/field/image/open-source.png' );
-            background-repeat: no-repeat;
-            background-position: top left;
-            padding-left: 40px;
-            min-height: 30px;
-            line-height: 30px;
-        }
-        .version {
-            text-align: center;
-            color: #999;
-            font-size: 80%;
-            display: block;
-        }
-        </style>
+        <link type="text/css" rel="stylesheet" href="style/default.css" />
     </head>
     <body>
         <a href="https://github.com/dionyziz/stream.js"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png" alt="Fork me on GitHub"></a>
         <div class='content'>
             <h1>stream.js</h1>
-            
+
             <p>
             stream.js is a tiny stand-alone Javascript library that <em>unlocks</em> a new data structure for you: <strong>streams</strong>.
             </p>
@@ -265,7 +101,7 @@
                 s.print(); // prints the numbers from 10 to 20
             </pre>
             <p>
-            You can use <code>map</code>, <code>filter</code>, and <code>walk</code> on your streams. <code>s.map( f )</code> takes an argument <code>f</code>, a function, and runs <code>f</code> on 
+            You can use <code>map</code>, <code>filter</code>, and <code>walk</code> on your streams. <code>s.map( f )</code> takes an argument <code>f</code>, a function, and runs <code>f</code> on
             every element of the stream; it returns the stream of the return values of that function. So you can use it to, for example, double the numbers in your stream:
             </p>
             <pre name='code' class='jscript:nogutter:nocontrols'>
@@ -324,7 +160,7 @@
                 fewerNumbers.print();
             </pre>
             <p>
-            A few other useful things: <code>s.scale( factor )</code> multiplies every element of your stream by factor; and <code>s.add( t )</code> adds each 
+            A few other useful things: <code>s.scale( factor )</code> multiplies every element of your stream by factor; and <code>s.add( t )</code> adds each
             element of the stream <code>s</code> to each element of the stream <code>t</code> and returns the result. Let's see an example of this:
             </p>
             <pre name='code' class='jscript:nogutter:nocontrols'>
@@ -357,7 +193,7 @@
 
             <h2>You're cheating</h2>
             <p>
-            Yes, I am. The point is that you can <em>think</em> of these structures as infinite, and this introduces a new programming paradigm that yields concise code that is 
+            Yes, I am. The point is that you can <em>think</em> of these structures as infinite, and this introduces a new programming paradigm that yields concise code that is
             easy to understand and closer to mathematics than usual imperative programming.
             The library itself is very short; it's thinking about these concepts that matters.
             Let's play with this a little more and construct the streams containing all even numbers and
@@ -374,7 +210,7 @@
                 evenNumbers.take( 3 ).print(); // prints 2, 4, 6
                 oddNumbers.take( 3 ).print(); // prints 1, 3, 5
             </pre>
-            
+
             <p>
             Cool, right? I kept my promise that streams are more powerful than arrays. Now, bear with me for a few more minutes and
             let's introduce a few more things about streams. You can make your own stream objects using <code>new Stream()</code> to create an empty stream, or
@@ -443,7 +279,7 @@
                             // 2, 3, 4, 5, 6, ...
                             // which indeed are the REST of the natural numbers after one
                             return ones().add( naturalNumbers() );
-                        } 
+                        }
                     );
                 }
                 naturalNumbers().take( 5 ).print(); // prints 1, 2, 3, 4, 5
@@ -521,7 +357,7 @@
                 <p class='summary'>The stream.js tutorial is licensed under <a rel="license" href="http://creativecommons.org/licenses/by/3.0/">Creative Commons Attribution 3.0</a>.</p>
 
                 <p class='summary oss'>stream.js is licensed under the <a href='http://www.opensource.org/licenses/mit-license.php'>MIT license</a>.</p>
-            
+
                 <p>Copyright ©2011 Dionysis Zindros &lt;dionyziz@gmail.com&gt;</p>
 
                 <p>Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:</p>
@@ -544,7 +380,7 @@
         </div>
         <script src="syntax/js/shCore.js"></script>
         <script src="syntax/js/shBrushJScript.js"></script>
-        <script> 
+        <script>
         dp.SyntaxHighlighter.HighlightAll( 'code' );
         var $ = function( id ) {
             return document.getElementById( id );
