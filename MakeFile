@@ -1,4 +1,9 @@
 update:
-		@git submodule update --remote
+	@git submodule update --remote
 
-.PHONY: update
+minify:
+	@make -f stream/MakeFile minify
+
+all: update minify
+
+.PHONY: update, minify, all
