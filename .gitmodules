@@ -1,3 +1,7 @@
 [submodule "stream"]
 	path = stream
 	url = https://github.com/dionyziz/stream.js.git
+	branch = browserify
+[submodule "npm"]
+	path = npm
+	url = https://github.com/dotnetCarpenter/stream.js.git
