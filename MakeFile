@@ -1,24 +1,26 @@
 REPO_FOLDER = stream
 MINI_FILES = stream.min.js stream.min.js.map
+ZIP_FILE = stream.js.zip 
 #STREAM_MINI_FILES := $(REPO_FOLDER)/stream.min.js $(REPO_FOLDER)/stream.min.js.map
-STREAM_MINI_FILES := $(MINI_FILES:%=REPO_FOLDER/%) #6.3.1 Substitution References
+STREAM_MINI_FILES := $(MINI_FILES:%=$(REPO_FOLDER)/%) #6.3.1 Substitution References
 
-stream.js.zip: $(STREAM_MINI_FILES)
-	cd $(REPO_FOLDER); \
-	npm run zip ../stream.js.zip $(MINI_FILES)
 
-$(STREAM_MINI_FILES): minify
+$(ZIP_FILE): $(STREAM_MINI_FILES)
+	@cd $(REPO_FOLDER); \
+	npm run zip ../$@ $(MINI_FILES)
 
-#$(REPO_FOLDER)/stream.min.js.map: minify
-
-minify:
+$(STREAM_MINI_FILES):
 	@cd $(REPO_FOLDER); \
 	test -d "node_modules" || npm install; \
 	npm run minify;
 
+
 update:
 	@git submodule update --remote
 
-all: update stream.js.zip
+clean:
+	@rm --verbose $(ZIP_FILE) $(STREAM_MINI_FILES)
 
-.PHONY: minify, update, all
+all: update $(ZIP_FILE)
+
+.PHONY: update, clean, all
