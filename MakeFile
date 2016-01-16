@@ -1,9 +1,24 @@
+REPO_FOLDER = stream
+ORIG_FILES = stream.js stream.min.js stream.min.js.map
+STREAM_ORIG_FILES := $(ORIG_FILES:%=$(REPO_FOLDER)/%) #6.3.1 Substitution References
+
+$(ORIG_FILES): $(STREAM_ORIG_FILES)
+	@cp $(STREAM_ORIG_FILES) .
+
+$(STREAM_ORIG_FILES):
+	@cd $(REPO_FOLDER); \
+	test -d "node_modules" || npm install; \
+  echo "Build UMD/CommonJS version of stream.js"; \
+  npm run build:browser; \
+	echo "Running minify..."; \
+	npm run minify;
+
 update:
 	@git submodule update --remote
 
-minify:
-	@make -f stream/MakeFile minify
+clean:
+	@rm --verbose $(STREAM_ORIG_FILES) $(ORIG_FILES)
 
-all: update minify
+all: update $(STREAM_ORIG_FILES)
 
-.PHONY: update, minify, all
+.PHONY: update all clean
