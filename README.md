@@ -1,4 +1,5 @@
 # stream.js-website
-The website code for stream.js (streamjs.org)
+The website code for [stream.js](https://github.com/dionyziz/stream.js)
+(https://dionyziz.github.io/stream.js-website/)
 
 Running on Jekyll: `jekyll serve`
