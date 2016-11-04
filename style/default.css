@@ -61,7 +61,7 @@ div.content {
     margin: 20px 20px 5px 20px;
 }
 h1 {
-    background-image: url( 'http://www.defaulticon.com/sites/default/files/styles/icon-front-page-32x32-preview/public/field/image/MD-shuffle.png' );
+    background-image: url( 'MD-shuffle.png' );
     background-repeat: no-repeat;
     padding-left: 40px;
     background-position: 0 7px;
