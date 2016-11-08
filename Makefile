@@ -14,7 +14,8 @@ $(STREAM_ORIG_FILES):
 	npm run minify;
 
 update:
-	@git submodule update --remote
+	@echo "If this does nothing you might need to write before 'git submodule init'"
+	git submodule update --remote
 
 clean:
 	@rm --verbose $(STREAM_ORIG_FILES) $(ORIG_FILES)
