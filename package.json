@@ -52,5 +52,8 @@
     "infinite",
     "data structure"
   ],
-  "homepage": "https://github.com/dionyziz/stream.js-website#readme"
+  "homepage": "https://github.com/dionyziz/stream.js-website#readme",
+  "devDependencies": {
+    "docpress": "0.7.1"
+  }
 }
