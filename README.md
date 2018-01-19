@@ -1,4 +1,6 @@
 # stream.js-website
+![Travis CI](https://travis-ci.org/GeorgeGkas/stream.js-website.svg?branch=new-website)
+
 The website code for [stream.js](https://github.com/dionyziz/stream.js)
 (https://dionyziz.github.io/stream.js-website/)
 
