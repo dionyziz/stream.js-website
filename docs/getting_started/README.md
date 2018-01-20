@@ -1,0 +1,2 @@
+# Getting Started
+If you devote 10 minutes of your time to read this section, it may completely change the way you think about programming (unless you come from a functional programming background that is!). Please bear with me and let me first introduce you to the basic operations streams support which are similar to arrays and linked lists. And then we'll talk about their interesting properties.
