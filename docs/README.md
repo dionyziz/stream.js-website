@@ -10,8 +10,7 @@ Documentation
 
 * API Reference
   * [Constructor](API/Constructor.md#)
-  * [Instance Methods](API/Instance.md)
-    * [create()](API/Instance.md#create)
+  * [Instance Methods](API/Instance.md#)
     * [empty()](API/Instance.md#empty)
     * [head()](API/Instance.md#head)
     * [tail()](API/Instance.md#tail)
