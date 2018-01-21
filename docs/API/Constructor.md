@@ -2,7 +2,7 @@
 
 > new Stream()
 
-Create a new empty stream.
+Creates a new empty stream (a stream with no elements).
 
 ```js
 var s = new Stream();
@@ -18,7 +18,7 @@ console.log( s.length() ) // => 0
 |head| *required* - The head (aka. the first element) of the stream.|
 |tailPromise| *required* - Function returning the tail (a stream with all the rest of the elements), which could potentially be the empty stream.|
 
-Create a new non-empty stream.
+Creates a new stream with the given head and tail. The tail is provided as a promise tailPromise, in the form of a function that returns the tail. This allows a powerful abstraction in the form of lazy streams, which enable features such as infinite streams.
 
 ```js
 // the head of the s stream is 10; the tail of the s stream is the empty stream
