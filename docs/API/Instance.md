@@ -279,3 +279,107 @@ var t = s.filter(f);
 t.print(); // => 1, 3, 5, 7, 9
 ```
 ---
+
+#### take
+|Parameter|Description|
+|---|---|
+|n| *required* - A numeric value.|
+
+Returns a new stream which contains only the first `n` items of the current stream. This can be applied on an infinite stream to produce a finite stream. If the stream does not contain enough items to take, those that can be taken are returned and no error is produced.
+
+```js
+var s = Stream.make(10, 20, 30);
+
+var t = s.take(1);
+t.print(); // => 10
+
+var u = s.take(5);
+u.print(); // => 20, 30
+```
+---
+
+#### takeWhile
+|Parameter|Description|
+|---|---|
+|f(x)| *required* - A function that is used as condition. `x` is the current item of the stream.|
+
+Return a new stream by continually taking items from current stream until `f` applies to `true`.
+
+```js
+function f (x) {
+  return x < 0;
+}
+
+var s = Stream.make(-5, -8, -2, 34, 10, -5);
+var t = s.takeWhile(f); // Stop when you find a non-negative value.
+
+t.print(); // => -5, -8, -2
+```
+---
+
+#### drop
+|Parameter|Description|
+|---|---|
+|n| *required* - A numeric value.|
+
+Returns a new stream that does not contain the first `n` items of the current stream. If the current stream contains less than `n` items, an empty stream is returned. Dropping items from an infinite stream produces an infinite stream.
+
+```js
+var s = Stream.make(10, 20, 30);
+
+var t = s.drop(1);
+t.print(); // => 20, 30
+
+var u = s.drop(5);
+u.print(); // prints nothing
+```
+---
+
+#### dropWhile
+|Parameter|Description|
+|---|---|
+|f(x)| *required* - A function that is used as condition. `x` is the current item of the stream.|
+
+Return a new stream by continually dropping items from current stream until `f` applies to `true`.
+
+```js
+function f (x) {
+  return x < 0;
+}
+
+var s = Stream.make(-5, -8, -2, 34, 10, -5);
+var t = s.dropWhile(f); // Stop when you find a non-negative value.
+
+t.print(); // => 34, 10, -5
+```
+---
+
+#### member
+|Parameter|Description|
+|---|---|
+|x| *required* - A value to be tested if exists in current stream.|
+
+Checks if x is a member of the stream. Returns `true` if `x` exists in the stream or `false` otherwise. Requires a finite stream.
+
+
+```js
+var s = Stream.make('Curly', 'Moe', 'Larry');
+
+console.log( s.member('Curly') ); // => true
+console.log( s.member('Alex') ); // => false
+```
+---
+
+#### print
+Prints the elements of the stream in the console for debugging purposes. If `n` is provided, only `n` elements are printed. To be used only in finite stream. This method causes undefined behavior in non-finite streams.
+
+```js
+// Finite stream.
+var s = Stream.make('Curly', 'Moe', 'Larry');
+s.print(); // => 'Curly', 'Moe', 'Larry'
+
+// Infinite stream.
+var t = Stream.makeOnes();
+t.print(); // => hangs!
+```
+---

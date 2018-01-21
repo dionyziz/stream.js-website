@@ -33,10 +33,6 @@ Documentation
     * [dropWhile()](API/Instance.md#dropWhile)
     * [member()](API/Instance.md#member)
     * [print()](API/Instance.md#print)
-    * [take()](API/Instance.md#take)
-    * [takeWhile()](API/Instance.md#takeWhile)
-    * [drop()](API/Instance.md#drop)
-    * [dropWhile()](API/Instance.md#dropWhile)
 
   <hr />
   * [Static Methods](API/Static.md)
@@ -46,7 +42,6 @@ Documentation
     * [makeOnes()](API/Static.md#makeOnes)
     * [makeNaturalNumbers()](API/Static.md#makeNaturalNumbers)
     * [make()](API/Static.md#make)
-
     * [fromArray()](API/Static.md#fromArray)
     * [range()](API/Static.md#range)
     * [equals()](API/Static.md#equals)
