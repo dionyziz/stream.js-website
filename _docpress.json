@@ -1,0 +1,446 @@
+{
+  "toc": {
+    "sections": [
+      {
+        "title": "stream.js",
+        "source": "docs/Index.md",
+        "url": "index.html",
+        "slug": "index",
+        "headings": [
+          {
+            "title": "What's so special about them?",
+            "depth": 2,
+            "id": "what's-so-special-about-them"
+          },
+          {
+            "title": "Installation",
+            "depth": 2,
+            "id": "installation"
+          },
+          {
+            "title": "Usage",
+            "depth": 2,
+            "id": "usage"
+          }
+        ]
+      },
+      {
+        "title": "Getting Started",
+        "source": "docs/getting_started/README.md",
+        "url": "getting_started/index.html",
+        "slug": "getting_started",
+        "sections": [
+          {
+            "title": "First Stream",
+            "source": "docs/getting_started/First_Stream.md",
+            "url": "getting_started/First_Stream.html",
+            "slug": "getting_startedfirst_stream"
+          },
+          {
+            "title": "More Goodies",
+            "source": "docs/getting_started/More_Goodies.md",
+            "url": "getting_started/More_Goodies.html",
+            "slug": "getting_startedmore_goodies"
+          },
+          {
+            "title": "Beyond Infinity",
+            "source": "docs/getting_started/Beyond_Infinity.md",
+            "anchor": "#",
+            "url": "getting_started/Beyond_Infinity.html",
+            "slug": "getting_startedbeyond_infinity",
+            "headings": [
+              {
+                "title": "Does that require infinite memory/time/processing power?",
+                "depth": 2,
+                "id": "does-that-require-infinite-memorytimeprocessing-power"
+              },
+              {
+                "title": "You are cheating!",
+                "depth": 2,
+                "id": "you-are-cheating!"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "title": "API Reference",
+        "sections": [
+          {
+            "title": "Constructor",
+            "source": "docs/API/Constructor.md",
+            "anchor": "#",
+            "url": "API/Constructor.html",
+            "slug": "apiconstructor"
+          },
+          {
+            "title": "Instance Methods",
+            "source": "docs/API/Instance.md",
+            "anchor": "#",
+            "url": "API/Instance.html",
+            "slug": "apiinstance",
+            "sections": [
+              {
+                "title": "add()",
+                "source": "docs/API/Instance.md",
+                "anchor": "#add",
+                "url": "API/Instance.html",
+                "slug": "apiinstance-2"
+              },
+              {
+                "title": "append()",
+                "source": "docs/API/Instance.md",
+                "anchor": "#append",
+                "url": "API/Instance.html",
+                "slug": "apiinstance-3"
+              },
+              {
+                "title": "concatmap()",
+                "source": "docs/API/Instance.md",
+                "anchor": "#concatmap",
+                "url": "API/Instance.html",
+                "slug": "apiinstance-4"
+              },
+              {
+                "title": "drop()",
+                "source": "docs/API/Instance.md",
+                "anchor": "#drop",
+                "url": "API/Instance.html",
+                "slug": "apiinstance-5"
+              },
+              {
+                "title": "dropWhile()",
+                "source": "docs/API/Instance.md",
+                "anchor": "#dropwhile",
+                "url": "API/Instance.html",
+                "slug": "apiinstance-6"
+              },
+              {
+                "title": "empty()",
+                "source": "docs/API/Instance.md",
+                "anchor": "#empty",
+                "url": "API/Instance.html",
+                "slug": "apiinstance-7"
+              },
+              {
+                "title": "filter()",
+                "source": "docs/API/Instance.md",
+                "anchor": "#filter",
+                "url": "API/Instance.html",
+                "slug": "apiinstance-8"
+              },
+              {
+                "title": "force()",
+                "source": "docs/API/Instance.md",
+                "anchor": "#force",
+                "url": "API/Instance.html",
+                "slug": "apiinstance-9"
+              },
+              {
+                "title": "head()",
+                "source": "docs/API/Instance.md",
+                "anchor": "#head",
+                "url": "API/Instance.html",
+                "slug": "apiinstance-10"
+              },
+              {
+                "title": "item()",
+                "source": "docs/API/Instance.md",
+                "anchor": "#item",
+                "url": "API/Instance.html",
+                "slug": "apiinstance-11"
+              },
+              {
+                "title": "length()",
+                "source": "docs/API/Instance.md",
+                "anchor": "#length",
+                "url": "API/Instance.html",
+                "slug": "apiinstance-12"
+              },
+              {
+                "title": "map()",
+                "source": "docs/API/Instance.md",
+                "anchor": "#map",
+                "url": "API/Instance.html",
+                "slug": "apiinstance-13"
+              },
+              {
+                "title": "member()",
+                "source": "docs/API/Instance.md",
+                "anchor": "#member",
+                "url": "API/Instance.html",
+                "slug": "apiinstance-14"
+              },
+              {
+                "title": "print()",
+                "source": "docs/API/Instance.md",
+                "anchor": "#print",
+                "url": "API/Instance.html",
+                "slug": "apiinstance-15"
+              },
+              {
+                "title": "reduce()",
+                "source": "docs/API/Instance.md",
+                "anchor": "#reduce",
+                "url": "API/Instance.html",
+                "slug": "apiinstance-16"
+              },
+              {
+                "title": "scale()",
+                "source": "docs/API/Instance.md",
+                "anchor": "#scale",
+                "url": "API/Instance.html",
+                "slug": "apiinstance-17"
+              },
+              {
+                "title": "sum()",
+                "source": "docs/API/Instance.md",
+                "anchor": "#sum",
+                "url": "API/Instance.html",
+                "slug": "apiinstance-18"
+              },
+              {
+                "title": "tail()",
+                "source": "docs/API/Instance.md",
+                "anchor": "#tail",
+                "url": "API/Instance.html",
+                "slug": "apiinstance-19"
+              },
+              {
+                "title": "take()",
+                "source": "docs/API/Instance.md",
+                "anchor": "#take",
+                "url": "API/Instance.html",
+                "slug": "apiinstance-20"
+              },
+              {
+                "title": "takeWhile()",
+                "source": "docs/API/Instance.md",
+                "anchor": "#takewhile",
+                "url": "API/Instance.html",
+                "slug": "apiinstance-21"
+              },
+              {
+                "title": "walk()",
+                "source": "docs/API/Instance.md",
+                "anchor": "#walk",
+                "url": "API/Instance.html",
+                "slug": "apiinstance-22"
+              },
+              {
+                "title": "zip()",
+                "source": "docs/API/Instance.md",
+                "anchor": "#zip",
+                "url": "API/Instance.html",
+                "slug": "apiinstance-23"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "title": "",
+        "sections": [
+          {
+            "title": "Static Methods",
+            "source": "docs/API/Static.md",
+            "url": "API/Static.html",
+            "slug": "apistatic",
+            "sections": [
+              {
+                "title": "cycle()",
+                "source": "docs/API/Static.md",
+                "anchor": "#cycle",
+                "url": "API/Static.html",
+                "slug": "apistatic-2"
+              },
+              {
+                "title": "equals()",
+                "source": "docs/API/Static.md",
+                "anchor": "#equals",
+                "url": "API/Static.html",
+                "slug": "apistatic-3"
+              },
+              {
+                "title": "fromArray()",
+                "source": "docs/API/Static.md",
+                "anchor": "#fromarray",
+                "url": "API/Static.html",
+                "slug": "apistatic-4"
+              },
+              {
+                "title": "iterate()",
+                "source": "docs/API/Static.md",
+                "anchor": "#iterate",
+                "url": "API/Static.html",
+                "slug": "apistatic-5"
+              },
+              {
+                "title": "make()",
+                "source": "docs/API/Static.md",
+                "anchor": "#make",
+                "url": "API/Static.html",
+                "slug": "apistatic-6"
+              },
+              {
+                "title": "makeNaturalNumbers()",
+                "source": "docs/API/Static.md",
+                "anchor": "#makenaturalnumbers",
+                "url": "API/Static.html",
+                "slug": "apistatic-7"
+              },
+              {
+                "title": "makeOnes()",
+                "source": "docs/API/Static.md",
+                "anchor": "#makeones",
+                "url": "API/Static.html",
+                "slug": "apistatic-8"
+              },
+              {
+                "title": "range()",
+                "source": "docs/API/Static.md",
+                "anchor": "#range",
+                "url": "API/Static.html",
+                "slug": "apistatic-9"
+              },
+              {
+                "title": "repeat()",
+                "source": "docs/API/Static.md",
+                "anchor": "#repeat",
+                "url": "API/Static.html",
+                "slug": "apistatic-10"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "title": "Ports",
+        "source": "docs/Ports.md",
+        "url": "Ports.html",
+        "slug": "ports",
+        "sections": [
+          {
+            "title": "",
+            "source": ""
+          }
+        ]
+      },
+      {
+        "title": "Tribute",
+        "source": "docs/Tribute.md",
+        "url": "Tribute.html",
+        "slug": "tribute",
+        "sections": [
+          {
+            "title": "",
+            "source": ""
+          }
+        ]
+      }
+    ]
+  },
+  "index": {
+    "index.html": {
+      "source": "docs/Index.md",
+      "title": "stream.js",
+      "pageTitle": "stream.js",
+      "slug": "index",
+      "headings": [
+        {
+          "title": "What's so special about them?",
+          "depth": 2,
+          "id": "what's-so-special-about-them"
+        },
+        {
+          "title": "Installation",
+          "depth": 2,
+          "id": "installation"
+        },
+        {
+          "title": "Usage",
+          "depth": 2,
+          "id": "usage"
+        }
+      ]
+    },
+    "getting_started/index.html": {
+      "source": "docs/getting_started/README.md",
+      "title": "Getting Started - stream.js",
+      "pageTitle": "Getting Started",
+      "slug": "getting_started"
+    },
+    "getting_started/First_Stream.html": {
+      "source": "docs/getting_started/First_Stream.md",
+      "title": "First Stream - stream.js",
+      "pageTitle": "First Stream",
+      "slug": "getting_startedfirst_stream"
+    },
+    "getting_started/More_Goodies.html": {
+      "source": "docs/getting_started/More_Goodies.md",
+      "title": "More Goodies - stream.js",
+      "pageTitle": "More Goodies",
+      "slug": "getting_startedmore_goodies"
+    },
+    "getting_started/Beyond_Infinity.html": {
+      "source": "docs/getting_started/Beyond_Infinity.md",
+      "title": "Beyond Infinity - stream.js",
+      "pageTitle": "Beyond Infinity",
+      "slug": "getting_startedbeyond_infinity",
+      "headings": [
+        {
+          "title": "Does that require infinite memory/time/processing power?",
+          "depth": 2,
+          "id": "does-that-require-infinite-memorytimeprocessing-power"
+        },
+        {
+          "title": "You are cheating!",
+          "depth": 2,
+          "id": "you-are-cheating!"
+        }
+      ]
+    },
+    "API/Constructor.html": {
+      "source": "docs/API/Constructor.md",
+      "title": "Constructor - stream.js",
+      "pageTitle": "Constructor",
+      "slug": "apiconstructor"
+    },
+    "API/Instance.html": {
+      "source": "docs/API/Instance.md",
+      "title": "zip() - stream.js",
+      "pageTitle": "zip()",
+      "slug": "apiinstance-23"
+    },
+    "API/Static.html": {
+      "source": "docs/API/Static.md",
+      "title": "repeat() - stream.js",
+      "pageTitle": "repeat()",
+      "slug": "apistatic-10"
+    },
+    "Ports.html": {
+      "source": "docs/Ports.md",
+      "title": "Ports - stream.js",
+      "pageTitle": "Ports",
+      "slug": "ports"
+    },
+    "Tribute.html": {
+      "source": "docs/Tribute.md",
+      "title": "Tribute - stream.js",
+      "pageTitle": "Tribute",
+      "slug": "tribute"
+    }
+  },
+  "sources": {
+    "docs/Index.md": "index.html",
+    "docs/getting_started/README.md": "getting_started/index.html",
+    "docs/getting_started/First_Stream.md": "getting_started/First_Stream.html",
+    "docs/getting_started/More_Goodies.md": "getting_started/More_Goodies.html",
+    "docs/getting_started/Beyond_Infinity.md": "getting_started/Beyond_Infinity.html",
+    "docs/API/Constructor.md": "API/Constructor.html",
+    "docs/API/Instance.md": "API/Instance.html",
+    "docs/API/Static.md": "API/Static.html",
+    "docs/Ports.md": "Ports.html",
+    "docs/Tribute.md": "Tribute.html"
+  }
+}

@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <link rel="stylesheet" href="assets/style.css?t=615badd5">
     <script src="assets/script.js?t=42463e55"></script>
-    <title>stream.js</title>
+    <title>Tribute - stream.js</title>
     <meta name="viewport" content="width=device-width">
   </head>
   <body class="-menu-visible">
@@ -13,15 +13,7 @@
       <div class="menu toc-menu">
         <li class="menu-item -level-0 -parent">
           <ul class="submenu">
-            <li class="menu-item -level-1"><a class="link title -active link-index" href="index.html">stream.js</a>
-              <ul class="headings heading-list">
-                <li class="heading-item -depth-2"><a class="hlink link-what's-so-special-about-them" href="#what's-so-special-about-them">What's so special about them?</a>
-                </li>
-                <li class="heading-item -depth-2"><a class="hlink link-installation" href="#installation">Installation</a>
-                </li>
-                <li class="heading-item -depth-2"><a class="hlink link-usage" href="#usage">Usage</a>
-                </li>
-              </ul>
+            <li class="menu-item -level-1"><a class="link title  link-index" href="index.html">stream.js</a>
             </li>
             <li class="menu-item -level-1 -parent"><a class="link title  link-getting_started" href="getting_started/index.html">Getting Started</a>
               <ul class="submenu">
@@ -119,7 +111,7 @@
                 </li>
               </ul>
             </li>
-            <li class="menu-item -level-1 -parent"><a class="link title  link-tribute" href="Tribute.html">Tribute</a>
+            <li class="menu-item -level-1 -parent"><a class="link title -active link-tribute" href="Tribute.html">Tribute</a>
               <ul class="submenu">
                 <li class="menu-item -level-2">
                 </li>
@@ -128,53 +120,21 @@
           </ul>
         </li>
       </div>
-      <div class="body page-index">
+      <div class="body page-tribute">
         <div class="header-nav">
           <div class="right"><a class="iconlink" href="https://github.com/dionyziz/stream.js" data-title="dionyziz/stream.js">
               <!-- span.title Open in GitHub--><span class="icon -github"></span></a>
           </div>
         </div>
-        <div class="markdown-body"><h1 id="stream.js">stream.js <a href="https://travis-ci.org/dionyziz/stream.js"><img src="https://travis-ci.org/dionyziz/stream.js.svg?branch=master" alt="Build Status"></a> <a href="https://codecov.io/github/dionyziz/stream.js?branch=master"><img src="https://codecov.io/github/dionyziz/stream.js/coverage.svg?branch=master" alt="codecov.io"></a></h1>
-<p>stream.js is a tiny Javascript library that unlocks a new data structure for you: streams.</p>
-<h2 id="what&apos;s-so-special-about-them">What&apos;s so special about them?</h2>
-<p>Streams are an easy to use data structure similar to arrays and linked lists, but with some <strong>extraordinary</strong> capabilities. Unlike arrays, streams are a magical data structure:</p>
-<p><strong><em>They can have an infinite number of elements!</em></strong></p>
-<p>Yes, you heard right. Their power comes from being lazily evaluated, which in simple terms means that they can contain infinite items.</p>
-<h2 id="installation">Installation</h2>
-<p>In nodejs:</p>
-<pre><code class="lang-js">npm install https:<span class="pl-c">//github.com/dionyziz/stream.js.git</span>
-</code></pre>
-<p>In bower:</p>
-<pre><code class="lang-js">bower install stream.js
-</code></pre>
-<p>As per <a href="https://github.com/bower/spec/blob/master/json.md#main">bower.json specification</a>,
-we have defined the source file for stream.js and not a minified version. You can get a
-minified version from <a href="https://www.jsdelivr.com/projects/stream.js">jsDelivr</a>.</p>
-<h2 id="usage">Usage</h2>
-<p>In nodejs:</p>
-<pre><code class="lang-js"><span class="pl-k">var</span> Stream = <span class="pl-c1">require</span>(<span class="pl-s">&apos;stream.js&apos;</span>);
-<span class="pl-k">var</span> s1 = Stream.make(<span class="hljs-number">1</span>,<span class="hljs-number">2</span>,<span class="hljs-number">3</span>);
-<span class="pl-k">var</span> s2 = <span class="pl-k">new</span> Stream();
-s2.append(<span class="hljs-number">1</span>).append(<span class="hljs-number">2</span>).append(<span class="hljs-number">3</span>);
-</code></pre>
-<p>In the browser:</p>
-<pre><code class="lang-html"><span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">src</span>=<span class="pl-s">&quot;stream.js&quot;</span>&gt;</span><span class="undefined"></span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
-<span class="hljs-tag">&lt;<span class="hljs-name">script</span>&gt;</span><span class="actionscript">
-  <span class="pl-k">var</span> s1 = Stream.make(<span class="hljs-number">1</span>,<span class="hljs-number">2</span>,<span class="hljs-number">3</span>);
-  <span class="pl-k">var</span> s2 = <span class="pl-k">new</span> Stream();
-  s2.append(<span class="hljs-number">1</span>).append(<span class="hljs-number">2</span>).append(<span class="hljs-number">3</span>);
-</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
-</code></pre>
-<p>or with AMD:</p>
-<pre><code class="lang-js">define(<span class="hljs-function"><span class="pl-k">function</span>(<span class="hljs-params">require</span>) </span>{
-  <span class="pl-k">var</span> Stream = <span class="pl-c1">require</span>(<span class="pl-s">&quot;stream.js&quot;</span>);
-  Stream.make(<span class="hljs-number">1</span>,<span class="hljs-number">2</span>,<span class="hljs-number">3</span>).print();
-});
-</code></pre>
+        <div class="markdown-body"><h1 id="tribute">Tribute</h1>
+<p>Streams aren&apos;t in fact a new idea at all. Many functional languages support them. The name &apos;stream&apos; is used in Scheme, a LISP dialect that supports these features. Haskell also supports infinite lists. The names &apos;take&apos;, &apos;tail&apos;, &apos;head&apos;, &apos;map&apos; and &apos;filter&apos; are all used in Haskell. A different but similar concept also exists in Python and in many other languages; these are called &quot;generators&quot;.</p>
+<p>These ideas have been around for a long time in the functional programming community. However, they&apos;re quite new concepts for most Javascript programmers, especially those without a functional programming background.</p>
+<p>Many of the examples and ideas come from the book <a href="http://mitpress.mit.edu/sicp/full-text/book/book.html">Structure and Interpretation of Computer Programs</a>. If you like the ideas here, I highly recommend reading it; it&apos;s available online for free. It was my inspiration for building this library.</p>
+<p>If you prefer a different syntax for streams, you can try out <a href="http://neue.cc/reference.htm">linq.js</a> or, if you use node.js, <a href="https://github.com/pkrumins/node-lazy">node-lazy</a> may be for you.</p>
 
         </div>
         <div class="footer-nav">
-          <div class="right"><a href="getting_started/index.html"><span class="label">Next: </span><span class="title">Getting Started</span></a></div>
+          <div class="left"><a href="Ports.html"><span class="title">Ports</span></a></div>
         </div>
       </div>
     </div>

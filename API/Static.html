@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="../assets/style.css?t=615badd5">
+    <script src="../assets/script.js?t=42463e55"></script>
+    <title>repeat() - stream.js</title>
+    <meta name="viewport" content="width=device-width">
+  </head>
+  <body class="-menu-visible">
+    <div class="doc-layout">
+      <div class="toggle menu-toggle js-menu-toggle"></div>
+      <div class="menu toc-menu">
+        <li class="menu-item -level-0 -parent">
+          <ul class="submenu">
+            <li class="menu-item -level-1"><a class="link title  link-index" href="../index.html">stream.js</a>
+            </li>
+            <li class="menu-item -level-1 -parent"><a class="link title  link-getting_started" href="../getting_started/index.html">Getting Started</a>
+              <ul class="submenu">
+                <li class="menu-item -level-2"><a class="link title  link-getting_startedfirst_stream" href="../getting_started/First_Stream.html">First Stream</a>
+                </li>
+                <li class="menu-item -level-2"><a class="link title  link-getting_startedmore_goodies" href="../getting_started/More_Goodies.html">More Goodies</a>
+                </li>
+                <li class="menu-item -level-2"><a class="link title  link-getting_startedbeyond_infinity" href="../getting_started/Beyond_Infinity.html#">Beyond Infinity</a>
+                </li>
+              </ul>
+            </li>
+            <li class="menu-item -level-1 -parent"><span class="title">API Reference</span>
+              <ul class="submenu">
+                <li class="menu-item -level-2"><a class="link title  link-apiconstructor" href="../API/Constructor.html#">Constructor</a>
+                </li>
+                <li class="menu-item -level-2 -parent"><a class="link title  link-apiinstance" href="../API/Instance.html#">Instance Methods</a>
+                  <ul class="submenu">
+                    <li class="menu-item -level-3"><a class="link title  link-apiinstance-2" href="../API/Instance.html#add">add()</a>
+                    </li>
+                    <li class="menu-item -level-3"><a class="link title  link-apiinstance-3" href="../API/Instance.html#append">append()</a>
+                    </li>
+                    <li class="menu-item -level-3"><a class="link title  link-apiinstance-4" href="../API/Instance.html#concatmap">concatmap()</a>
+                    </li>
+                    <li class="menu-item -level-3"><a class="link title  link-apiinstance-5" href="../API/Instance.html#drop">drop()</a>
+                    </li>
+                    <li class="menu-item -level-3"><a class="link title  link-apiinstance-6" href="../API/Instance.html#dropwhile">dropWhile()</a>
+                    </li>
+                    <li class="menu-item -level-3"><a class="link title  link-apiinstance-7" href="../API/Instance.html#empty">empty()</a>
+                    </li>
+                    <li class="menu-item -level-3"><a class="link title  link-apiinstance-8" href="../API/Instance.html#filter">filter()</a>
+                    </li>
+                    <li class="menu-item -level-3"><a class="link title  link-apiinstance-9" href="../API/Instance.html#force">force()</a>
+                    </li>
+                    <li class="menu-item -level-3"><a class="link title  link-apiinstance-10" href="../API/Instance.html#head">head()</a>
+                    </li>
+                    <li class="menu-item -level-3"><a class="link title  link-apiinstance-11" href="../API/Instance.html#item">item()</a>
+                    </li>
+                    <li class="menu-item -level-3"><a class="link title  link-apiinstance-12" href="../API/Instance.html#length">length()</a>
+                    </li>
+                    <li class="menu-item -level-3"><a class="link title  link-apiinstance-13" href="../API/Instance.html#map">map()</a>
+                    </li>
+                    <li class="menu-item -level-3"><a class="link title  link-apiinstance-14" href="../API/Instance.html#member">member()</a>
+                    </li>
+                    <li class="menu-item -level-3"><a class="link title  link-apiinstance-15" href="../API/Instance.html#print">print()</a>
+                    </li>
+                    <li class="menu-item -level-3"><a class="link title  link-apiinstance-16" href="../API/Instance.html#reduce">reduce()</a>
+                    </li>
+                    <li class="menu-item -level-3"><a class="link title  link-apiinstance-17" href="../API/Instance.html#scale">scale()</a>
+                    </li>
+                    <li class="menu-item -level-3"><a class="link title  link-apiinstance-18" href="../API/Instance.html#sum">sum()</a>
+                    </li>
+                    <li class="menu-item -level-3"><a class="link title  link-apiinstance-19" href="../API/Instance.html#tail">tail()</a>
+                    </li>
+                    <li class="menu-item -level-3"><a class="link title  link-apiinstance-20" href="../API/Instance.html#take">take()</a>
+                    </li>
+                    <li class="menu-item -level-3"><a class="link title  link-apiinstance-21" href="../API/Instance.html#takewhile">takeWhile()</a>
+                    </li>
+                    <li class="menu-item -level-3"><a class="link title  link-apiinstance-22" href="../API/Instance.html#walk">walk()</a>
+                    </li>
+                    <li class="menu-item -level-3"><a class="link title  link-apiinstance-23" href="../API/Instance.html#zip">zip()</a>
+                    </li>
+                  </ul>
+                </li>
+              </ul>
+            </li>
+            <li class="menu-item -level-1 -parent">
+              <ul class="submenu">
+                <li class="menu-item -level-2 -parent"><a class="link title -active link-apistatic" href="../API/Static.html">Static Methods</a>
+                  <ul class="submenu">
+                    <li class="menu-item -level-3"><a class="link title  link-apistatic-2" href="../API/Static.html#cycle">cycle()</a>
+                    </li>
+                    <li class="menu-item -level-3"><a class="link title  link-apistatic-3" href="../API/Static.html#equals">equals()</a>
+                    </li>
+                    <li class="menu-item -level-3"><a class="link title  link-apistatic-4" href="../API/Static.html#fromarray">fromArray()</a>
+                    </li>
+                    <li class="menu-item -level-3"><a class="link title  link-apistatic-5" href="../API/Static.html#iterate">iterate()</a>
+                    </li>
+                    <li class="menu-item -level-3"><a class="link title  link-apistatic-6" href="../API/Static.html#make">make()</a>
+                    </li>
+                    <li class="menu-item -level-3"><a class="link title  link-apistatic-7" href="../API/Static.html#makenaturalnumbers">makeNaturalNumbers()</a>
+                    </li>
+                    <li class="menu-item -level-3"><a class="link title  link-apistatic-8" href="../API/Static.html#makeones">makeOnes()</a>
+                    </li>
+                    <li class="menu-item -level-3"><a class="link title  link-apistatic-9" href="../API/Static.html#range">range()</a>
+                    </li>
+                    <li class="menu-item -level-3"><a class="link title  link-apistatic-10" href="../API/Static.html#repeat">repeat()</a>
+                    </li>
+                  </ul>
+                </li>
+              </ul>
+            </li>
+            <li class="menu-item -level-1 -parent"><a class="link title  link-ports" href="../Ports.html">Ports</a>
+              <ul class="submenu">
+                <li class="menu-item -level-2">
+                </li>
+              </ul>
+            </li>
+            <li class="menu-item -level-1 -parent"><a class="link title  link-tribute" href="../Tribute.html">Tribute</a>
+              <ul class="submenu">
+                <li class="menu-item -level-2">
+                </li>
+              </ul>
+            </li>
+          </ul>
+        </li>
+      </div>
+      <div class="body page-apistatic-10">
+        <div class="header-nav">
+          <div class="right"><a class="iconlink" href="https://github.com/dionyziz/stream.js" data-title="dionyziz/stream.js">
+              <!-- span.title Open in GitHub--><span class="icon -github"></span></a>
+          </div>
+        </div>
+        <div class="markdown-body"><h1 id="static-methods">Static Methods</h1>
+<h4 id="cycle">cycle</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>a</td>
+<td><em>required</em> - An array of elements.</td>
+</tr>
+</tbody>
+</table>
+<p>Returns an infinite stream by continually concatenating the array <code>a</code>.</p>
+<pre><code class="lang-js"><span class="pl-k">var</span> s = Stream.cycle([<span class="hljs-number">98</span>, <span class="hljs-number">99</span>, <span class="hljs-number">100</span>]);
+
+<span class="pl-c1">console</span>.log( s.item(<span class="hljs-number">0</span>) ); <span class="pl-c">// =&gt; 98</span>
+<span class="pl-c1">console</span>.log( s.item(<span class="hljs-number">1</span>) ); <span class="pl-c">// =&gt; 99</span>
+<span class="pl-c1">console</span>.log( s.item(<span class="hljs-number">2</span>) ); <span class="pl-c">// =&gt; 100</span>
+<span class="pl-c1">console</span>.log( s.item(<span class="hljs-number">3</span>) ); <span class="pl-c">// =&gt; 98</span>
+<span class="pl-c1">console</span>.log( s.item(<span class="hljs-number">4</span>) ); <span class="pl-c">// =&gt; 99</span>
+<span class="pl-c1">console</span>.log( s.item(<span class="hljs-number">5</span>) ); <span class="pl-c">// =&gt; 100</span>
+</code></pre>
+<hr>
+<h4 id="equals">equals</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>s</td>
+<td><em>required</em> - A stream.</td>
+</tr>
+<tr>
+<td>t</td>
+<td><em>required</em> - A stream.</td>
+</tr>
+</tbody>
+</table>
+<p>Checks if two streams are equal. Return <code>true</code> if they are equal or falsy value otherwise. Two streams are equal when they have the same number of elements and each two elements in the same positions are equal.</p>
+<pre><code class="lang-js"><span class="pl-k">var</span> s = Stream.range(<span class="hljs-number">10</span>, <span class="hljs-number">20</span>);
+<span class="pl-k">var</span> t = Stream.range(<span class="hljs-number">10</span>, <span class="hljs-number">20</span>);
+<span class="pl-k">var</span> u = Stream.range(<span class="hljs-number">5</span>, <span class="hljs-number">60</span>);
+
+<span class="pl-c1">console</span>.log( Stream.equals(s, t) ); <span class="pl-c">// =&gt; true</span>
+<span class="pl-c1">console</span>.log( Stream.equals(s, u) ); <span class="pl-c">// =&gt; undefined</span>
+<span class="pl-c1">console</span>.log( Stream.equals(t, u) ); <span class="pl-c">// =&gt; undefined</span>
+</code></pre>
+<hr>
+<h4 id="fromarray">fromArray</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>array</td>
+<td><em>required</em> - Array of values to be used as elements in the stream.</td>
+</tr>
+</tbody>
+</table>
+<p>Returns a stream which contains the items from the specified array. The stream contains exactly <em>n</em> items where <em>n</em> is the number of elements in the array specified.</p>
+<pre><code class="lang-js"><span class="pl-k">var</span> s = Stream.fromArray([<span class="hljs-number">5</span>, <span class="hljs-number">10</span>, <span class="hljs-number">15</span>, <span class="pl-s">&apos;George&apos;</span>]);
+s.print(); <span class="pl-c">// =&gt; 5, 10, 15, George</span>
+</code></pre>
+<hr>
+<h4 id="iterate">iterate</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>x</td>
+<td><em>required</em> - An initial value.</td>
+</tr>
+<tr>
+<td>f(x)</td>
+<td><em>required</em> - A function. <code>x</code> is the previous item of stream.</td>
+</tr>
+</tbody>
+</table>
+<p>Returns an infinite stream with items calculated based on function <code>f</code>. <code>x</code> is the initial value of the stream that will be used to calculate all the others.</p>
+<pre><code class="lang-js"><span class="hljs-function"><span class="pl-k">function</span> <span class="pl-ent">f</span> (<span class="hljs-params">x</span>) </span>{
+  <span class="pl-k">return</span> x * <span class="hljs-number">2</span>;
+}
+
+<span class="pl-k">var</span> powersOfTwo = Stream.iterate(<span class="hljs-number">1</span>, f);
+
+<span class="pl-c1">console</span>.log( powersOfTwo.item(<span class="hljs-number">0</span>) ); <span class="pl-c">// =&gt; 1</span>
+<span class="pl-c1">console</span>.log( powersOfTwo.item(<span class="hljs-number">1</span>) ); <span class="pl-c">// =&gt; 2</span>
+<span class="pl-c1">console</span>.log( powersOfTwo.item(<span class="hljs-number">2</span>) ); <span class="pl-c">// =&gt; 4</span>
+<span class="pl-c1">console</span>.log( powersOfTwo.item(<span class="hljs-number">10</span>) ); <span class="pl-c">// =&gt; 1024</span>
+<span class="pl-c1">console</span>.log( powersOfTwo.item(<span class="hljs-number">369</span>) ); <span class="pl-c">// =&gt; 1.2024538023802026e+111</span>
+</code></pre>
+<hr>
+<h4 id="make">make</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>a1, a2n ...an</td>
+<td><em>required</em> - Values to be used as elements in the stream.</td>
+</tr>
+</tbody>
+</table>
+<p>Returns a stream which contains the items specified in the function parameters. The stream contains exactly <em>n</em> items, where <em>n</em> is the number of arguments passed to the function.</p>
+<pre><code class="lang-js"><span class="pl-k">var</span> s = Stream.make(<span class="hljs-number">5</span>, <span class="hljs-number">10</span>, <span class="hljs-number">15</span>, <span class="pl-s">&apos;George&apos;</span>);
+s.print(); <span class="pl-c">// =&gt; 5, 10, 15, George</span>
+</code></pre>
+<hr>
+<h4 id="makenaturalnumbers">makeNaturalNumbers</h4>
+<p>Returns an infinite stream of natural numbers: 1, 2, 3, ...</p>
+<pre><code class="lang-js"><span class="pl-k">var</span> s = Stream.makeNaturalNumbers();
+
+<span class="pl-c1">console</span>.log( s.item(<span class="hljs-number">0</span>) ); <span class="pl-c">// =&gt; 1</span>
+<span class="pl-c1">console</span>.log( s.item(<span class="hljs-number">5</span>) ); <span class="pl-c">// =&gt; 6</span>
+<span class="pl-c1">console</span>.log( s.item(<span class="hljs-number">1000</span>) ); <span class="pl-c">// =&gt; 1001</span>
+</code></pre>
+<hr>
+<h4 id="makeones">makeOnes</h4>
+<p>Returns an infinite stream filled with the number 1.</p>
+<pre><code class="lang-js"><span class="pl-k">var</span> s = Stream.makeOnes();
+
+<span class="pl-c1">console</span>.log( s.item(<span class="hljs-number">0</span>) ); <span class="pl-c">// =&gt; 1</span>
+<span class="pl-c1">console</span>.log( s.item(<span class="hljs-number">5</span>) ); <span class="pl-c">// =&gt; 1</span>
+<span class="pl-c1">console</span>.log( s.item(<span class="hljs-number">1000</span>) ); <span class="pl-c">// =&gt; 1</span>
+</code></pre>
+<hr>
+<h4 id="range">range</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>low</td>
+<td><em>optional</em> - A value that indicate the first stream element.</td>
+</tr>
+<tr>
+<td>high</td>
+<td><em>optional</em> - Array of values to be used as elements in the stream.</td>
+</tr>
+</tbody>
+</table>
+<p>Returns a stream containing the integer numbers in the range [<code>low</code>, <code>high</code>]. The resulting stream contains exactly <code>high - low + 1</code> items. If low is omitted, it is assumed to be <code>1</code>. If <code>high</code> is omitted, an infinite range is produced, with no upper bound.</p>
+<pre><code class="lang-js"><span class="pl-k">var</span> s = Stream.range(<span class="hljs-number">10</span>, <span class="hljs-number">20</span>);
+s.print(); <span class="pl-c">// =&gt; 10, 11, ...20</span>
+</code></pre>
+<hr>
+<h4 id="repeat">repeat</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>x</td>
+<td><em>required</em> - A value.</td>
+</tr>
+</tbody>
+</table>
+<p>Returns an infinite stream filled with <code>x</code>.</p>
+<pre><code class="lang-js"><span class="pl-k">var</span> s = Stream.repeat(<span class="pl-s">&apos;element&apos;</span>);
+
+<span class="pl-c1">console</span>.log( s.item(<span class="hljs-number">0</span>) ); <span class="pl-c">// =&gt; element</span>
+<span class="pl-c1">console</span>.log( s.item(<span class="hljs-number">5</span>) ); <span class="pl-c">// =&gt; element</span>
+<span class="pl-c1">console</span>.log( s.item(<span class="hljs-number">1000</span>) ); <span class="pl-c">// =&gt; element</span>
+</code></pre>
+<hr>
+
+        </div>
+        <div class="footer-nav">
+          <div class="left"><a href="../API/Instance.html"><span class="title">zip()</span></a></div>
+          <div class="right"><a href="../Ports.html"><span class="label">Next: </span><span class="title">Ports</span></a></div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
