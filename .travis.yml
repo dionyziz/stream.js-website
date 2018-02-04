@@ -6,8 +6,8 @@ node_js:
 env:
   global:
     - GIT_NAME: stream.js-website
-    - GIT_EMAIL: georgegkas@gmail.com
-    - GITHUB_REPO: georgegkas/stream.js-website
+    - GIT_EMAIL: dionyziz@gmail.com
+    - GITHUB_REPO: dionyziz/stream.js-website
     - GIT_SOURCE: _docpress
 
 script:
